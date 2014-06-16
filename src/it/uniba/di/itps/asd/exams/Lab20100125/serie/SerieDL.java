@@ -18,10 +18,16 @@ public class SerieDL implements Serie {
     @Override
     public void add(Object e) {
         Elemento elemento = new Elemento(e);
-        listaHead.precedente.successivo = elemento;
-        elemento.precedente = listaHead.precedente;
-        elemento.successivo = listaHead;
-        listaHead.precedente = elemento;
+        if(listaHead.precedente == null && listaHead.successivo == null) {
+            // Lista vuota
+            elemento.precedente = elemento.successivo = listaHead;
+            listaHead.precedente = listaHead.successivo = elemento;
+        } else {
+            listaHead.precedente.successivo = elemento;
+            elemento.precedente = listaHead.precedente;
+            elemento.successivo = listaHead;
+            listaHead.precedente = elemento;
+        }
     }
 
     @Override
