@@ -1,7 +1,9 @@
-package it.uniba.di.itps.asd.exams.Lab20100608;
+package it.uniba.di.itps.asd.exams.Lab20100608.serie;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -10,9 +12,11 @@ import java.util.Iterator;
  * Time: 19:02
  * To change this template use File | Settings | File Templates.
  */
-public class Serie implements CompList {
+public class Serie<T> implements CompList<T> {
 
     public String name;
+
+    private List<T> lista = new ArrayList<T>();
 
     @Override
     public void add(Object dato) {
@@ -20,7 +24,7 @@ public class Serie implements CompList {
     }
 
     @Override
-    public Object getElement(int i) {
+    public T getElement(int i) {
         return null;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
@@ -30,7 +34,7 @@ public class Serie implements CompList {
     }
 
     @Override
-    public Object getMaximum(Comparator c) {
+    public T getMaximum(Comparator c) {
         return null;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
@@ -40,8 +44,8 @@ public class Serie implements CompList {
     }
 
     @Override
-    public Iterator iterator() {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+    public Iterator<T> iterator() {
+        return new SerieIterator<T>(this);
     }
 
 }

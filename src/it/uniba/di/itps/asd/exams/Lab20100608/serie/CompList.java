@@ -1,4 +1,4 @@
-package it.uniba.di.itps.asd.exams.Lab20100608;
+package it.uniba.di.itps.asd.exams.Lab20100608.serie;
 
 import java.util.Comparator;
 
