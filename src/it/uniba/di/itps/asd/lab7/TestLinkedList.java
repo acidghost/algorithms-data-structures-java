@@ -1,7 +1,7 @@
 package it.uniba.di.itps.asd.lab7;
 
-import it.uniba.di.itps.asd.structures.Dictionary;
-import it.uniba.di.itps.asd.structures.LinkedList;
+import it.uniba.di.itps.asd.structures.dictionary.Dictionary;
+import it.uniba.di.itps.asd.structures.dictionary.LinkedList;
 import it.uniba.di.itps.asd.structures.exceptions.EmptyStructureException;
 
 /**

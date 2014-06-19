@@ -1,7 +1,7 @@
 package it.uniba.di.itps.asd.lab6;
 
-import it.uniba.di.itps.asd.structures.ArraySorted;
-import it.uniba.di.itps.asd.structures.Dictionary;
+import it.uniba.di.itps.asd.structures.dictionary.ArraySorted;
+import it.uniba.di.itps.asd.structures.dictionary.Dictionary;
 import it.uniba.di.itps.asd.structures.exceptions.EmptyStructureException;
 
 /**

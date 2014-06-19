@@ -1,4 +1,4 @@
-package it.uniba.di.itps.asd.structures;
+package it.uniba.di.itps.asd.structures.dictionary;
 
 /**
  * Created by acidghost on 11/06/14.

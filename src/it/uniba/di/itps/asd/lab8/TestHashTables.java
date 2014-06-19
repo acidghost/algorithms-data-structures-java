@@ -1,6 +1,6 @@
 package it.uniba.di.itps.asd.lab8;
 
-import it.uniba.di.itps.asd.structures.*;
+import it.uniba.di.itps.asd.structures.dictionary.*;
 import it.uniba.di.itps.asd.structures.exceptions.EmptyStructureException;
 
 /**

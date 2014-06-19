@@ -1,4 +1,4 @@
-package it.uniba.di.itps.asd.structures;
+package it.uniba.di.itps.asd.structures.dictionary;
 
 import it.uniba.di.itps.asd.structures.exceptions.EmptyStructureException;
 

@@ -1,7 +1,7 @@
 package it.uniba.di.itps.asd.lab7;
 
-import it.uniba.di.itps.asd.structures.Dictionary;
-import it.uniba.di.itps.asd.structures.ArrayDoubling;
+import it.uniba.di.itps.asd.structures.dictionary.Dictionary;
+import it.uniba.di.itps.asd.structures.dictionary.ArrayDoubling;
 
 /**
  * Created by acidghost on 11/06/14.
