@@ -18,29 +18,46 @@ public class Serie<T> implements CompList<T> {
 
     private List<T> lista = new ArrayList<T>();
 
+    public Serie(String name) {
+        this.name = name;
+    }
+
     @Override
-    public void add(Object dato) {
-        //To change body of implemented methods use File | Settings | File Templates.
+    public void add(T dato) {
+        lista.add(dato);
     }
 
     @Override
     public T getElement(int i) {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return lista.get(i);
     }
 
     @Override
     public int numberElements() {
-        return 0;  //To change body of implemented methods use File | Settings | File Templates.
+        return lista.size();
     }
 
     @Override
     public T getMaximum(Comparator c) {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        T max = lista.get(0);
+        for(int i=1; i<lista.size(); i++) {
+            T current = lista.get(i);
+            if(c.compare(current, max) > 0) {
+                max = current;
+            }
+        }
+        return max;
     }
 
     @Override
     public boolean growing(Comparator c) {
-        return false;  //To change body of implemented methods use File | Settings | File Templates.
+        boolean grows = true;
+        for(int i=0; i<lista.size()-1 && grows; i++) {
+            if(c.compare(lista.get(i), lista.get(i+1)) > 0) {
+                grows = false;
+            }
+        }
+        return grows;
     }
 
     @Override

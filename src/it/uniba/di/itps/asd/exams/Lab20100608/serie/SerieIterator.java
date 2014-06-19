@@ -1,7 +1,6 @@
 package it.uniba.di.itps.asd.exams.Lab20100608.serie;
 
 import java.util.Iterator;
-import java.util.List;
 
 /**
  * Created by acidghost on 18/06/14.
