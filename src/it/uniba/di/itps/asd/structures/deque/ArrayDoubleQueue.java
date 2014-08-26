@@ -31,7 +31,7 @@ public class ArrayDoubleQueue implements DoubleQueue {
         if(codavuota()) {
             throw new EmptyStructureException("Deque vuota");
         } else {
-            return coda[fine];
+            return coda[fine-1];
         }
     }
 
@@ -45,7 +45,7 @@ public class ArrayDoubleQueue implements DoubleQueue {
                 System.arraycopy(coda, inizio, tmp, 0, n);
                 coda = tmp;
                 inizio = 0;
-                fine = n;
+                fine = n+1;
             }
             fine--;
             n--;
@@ -56,10 +56,17 @@ public class ArrayDoubleQueue implements DoubleQueue {
     public void inpila(Object elemento) {
         if(n == coda.length) {
             Object[] tmp = new Object[n * 2];
-            System.arraycopy(coda, inizio, tmp, (n/2), n);
+            System.arraycopy(coda, 0, tmp, (n/4)+1, n);
             coda = tmp;
-            inizio = (n/2)-1;
-            fine = n;
+            inizio = (n/4);
+            fine = inizio+n+1;
+        }
+        if(inizio < 0 || coda[inizio] != null) {
+            for(int i=fine-1; i>=inizio && i>=0; i--) {
+                coda[i+(n/4)+1] = coda[i];
+            }
+            inizio = inizio < 0 ? 0 : inizio;
+            fine = inizio+n+1;
         }
         coda[inizio] = elemento;
         inizio--;
@@ -71,7 +78,7 @@ public class ArrayDoubleQueue implements DoubleQueue {
         if(codavuota()) {
             throw new EmptyStructureException("Deque vuota");
         } else {
-            return coda[inizio];
+            return coda[inizio+1];
         }
     }
 
@@ -82,10 +89,10 @@ public class ArrayDoubleQueue implements DoubleQueue {
         } else {
             if(n <= coda.length/4) {
                 Object[] tmp = new Object[coda.length/2];
-                System.arraycopy(coda, inizio, tmp, n/2, n);
+                System.arraycopy(coda, inizio+1, tmp, n/4, n);
                 coda = tmp;
-                inizio = (n/2)-1;
-                fine = n;
+                inizio = (n/4)-1;
+                fine = inizio + n + 1;
             }
             inizio++;
             n--;
