@@ -21,6 +21,21 @@ public class PolaccaTest {
                 System.out.println("La stringa " + test + " non e' valida (causa: " + e.getMessage() + ")");
             }
         }
+
+        tests = new String[] {
+                "35 + 17 * ( 40 - 9 ) - 7",
+                "5 + ( 10 * 2 )",
+                "( ( 10 * 2 ) + ( 4 - 5 ) ) / 2",
+                "( 7 / 3 ) / ( ( 1 - 4 ) * 2 ) + 1" // Stringa che genera errore
+        };
+        for(String test : tests) {
+            try {
+                Polacca pol = new Polacca();
+                System.out.println("Converto espressione infissa " + test + " in " + pol.converti(test) + " postfissa\tvalutazione: " + pol.valuta());
+            } catch (RuntimeException re) {
+                System.out.println("Errore per la stringa " + test);
+            }
+        }
     }
 
 }
