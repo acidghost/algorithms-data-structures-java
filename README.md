@@ -9,6 +9,7 @@ Il corso si propone di insegnare le tecniche avazate di programmazione, algoritm
 Il package principale è `it.uniba.di.itps.asd.exams`, all'interno di quest'ultimo ci sono i seguenti:
 
 + `Lab20090119` - √
++ `Lab20090720` - √
 + `Lab20100111` - √
 + `Lab20100125` - √
 + `Lab20100608` - X
@@ -28,6 +29,7 @@ The course aims to teach advanced progamming techniques, basic algorithms and fo
 The main exam package is `it.uniba.di.itps.asd.exams`, inside this there are the following packages:
 
 + `Lab20090119` - √
++ `Lab20090720` - √
 + `Lab20100111` - √
 + `Lab20100125` - √
 + `Lab20100608` - X
