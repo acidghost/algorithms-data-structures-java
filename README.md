@@ -12,6 +12,7 @@ Il package principale è `it.uniba.di.itps.asd.exams`, all'interno di quest'ulti
 + `Lab20100111` - √
 + `Lab20100125` - √
 + `Lab20100608` - X
++ `Lab20101117` - √
 + `Lab20110614` - √
 
 <br /><br /><br /><br /><br /><br />
@@ -30,4 +31,5 @@ The main exam package is `it.uniba.di.itps.asd.exams`, inside this there are the
 + `Lab20100111` - √
 + `Lab20100125` - √
 + `Lab20100608` - X
++ `Lab20101117` - √
 + `Lab20110614` - √

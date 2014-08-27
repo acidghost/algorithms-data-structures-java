@@ -1,0 +1,16 @@
+package it.uniba.di.itps.asd.exams.Lab20101117;
+
+/**
+ * Created by acidghost on 27/08/14.
+ */
+public class EccezioneEspressioneNonValida extends RuntimeException {
+
+    public EccezioneEspressioneNonValida() {
+        super("Espressione non valida");
+    }
+
+    public EccezioneEspressioneNonValida(String msg) {
+        super(msg);
+    }
+
+}
