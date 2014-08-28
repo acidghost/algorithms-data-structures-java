@@ -5,8 +5,8 @@ import it.uniba.di.itps.asd.structures.exceptions.EmptyStructureException;
 /**
  * Created by acidghost on 28/08/14.
  */
-public class ListDoubling implements List {
-    private Object[] list = new Object[1];
+public class ListDoubling<T> implements List<T> {
+    private T[] list = (T[]) (new Object[1]);
     private int n = 0;
 
     @Override
@@ -15,7 +15,7 @@ public class ListDoubling implements List {
     }
 
     @Override
-    public Object readList(Position p) {
+    public T readList(Position p) {
         Index index = (Index) p;
         if(!checkPosition(p)) {
             throw new IndexOutOfBoundsException("La posizione " + index.index + " non e' valida");
@@ -24,7 +24,7 @@ public class ListDoubling implements List {
     }
 
     @Override
-    public void writeList(Object e, Position p) {
+    public void writeList(T e, Position p) {
         Index index = (Index) p;
         if(!checkPosition(p)) {
             throw new IndexOutOfBoundsException("La posizione " + index.index + " non e' valida");
@@ -65,7 +65,7 @@ public class ListDoubling implements List {
     }
 
     @Override
-    public void insert(Object e, Position p) {
+    public void insert(T e, Position p) {
         if(!checkPosition(p)) {
             throw new IndexOutOfBoundsException("Posizione di inserimento non valida");
         }
@@ -76,7 +76,7 @@ public class ListDoubling implements List {
         if(n == list.length) {
             Object[] tmp = new Object[n * 2];
             System.arraycopy(list, 0, tmp, 0, n);
-            list = tmp;
+            list = (T[]) tmp;
         }
     }
 
@@ -94,7 +94,7 @@ public class ListDoubling implements List {
         if(n <= list.length/4) {
             Object[] tmp = new Object[n / 2];
             System.arraycopy(list, 0, tmp, 0, n);
-            list = tmp;
+            list = (T[]) tmp;
         }
     }
 
@@ -104,7 +104,7 @@ public class ListDoubling implements List {
     }
 
     public static void main(String[] args) {
-        List list = new ListDoubling();
+        List<String> list = new ListDoubling<String>();
         System.out.println("la lista è vuota: " + list.isEmpty()+ "\n");
         list.insert("a", list.firstList());
         list.insert("b", list.firstList());

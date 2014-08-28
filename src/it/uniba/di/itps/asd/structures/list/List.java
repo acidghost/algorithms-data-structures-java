@@ -3,7 +3,7 @@ package it.uniba.di.itps.asd.structures.list;
 /**
  * Created by acidghost on 28/08/14.
  */
-public interface List {
+public interface List<T> {
     /**
      * @return true se la lista è vuota falso altrimenti
      */
@@ -14,14 +14,14 @@ public interface List {
      * @return il valore contenuto nell'elemento di posizione p
      * (sollevare eccezione PosizioneNonValida oppure OutOfBoundException)
      */
-    public Object readList(Position p);
+    public T readList(Position p);
 
     /**
      * @param e valore da scrivere
      * @param p posizione in cui scrivere l'elemento
      * (sollevare eccezione PosizioneNonValida o IndexOutOfBoundsException)
      */
-    public void writeList(Object e, Position p);
+    public void writeList(T e, Position p);
 
     /**
      * @return restituisce la posizione della testa della lista
@@ -53,7 +53,7 @@ public interface List {
      * @param p posizione dopo la quale inserire un nuovo elemento
      * eccezione posizione non valida
      */
-    public void insert(Object e, Position p);
+    public void insert(T e, Position p);
 
     /**
      * @param p posizione
