@@ -1,9 +1,11 @@
 package it.uniba.di.itps.asd.structures.list;
 
+import java.util.Iterator;
+
 /**
  * Created by acidghost on 28/08/14.
  */
-public interface List<T> {
+public interface List<T> extends Iterable<T> {
     /**
      * @return true se la lista è vuota falso altrimenti
      */
@@ -61,4 +63,7 @@ public interface List<T> {
      * solleva un eccezione per posizione non valida
      */
     public void remove(Position p);
+
+    @Override
+    Iterator<T> iterator();
 }

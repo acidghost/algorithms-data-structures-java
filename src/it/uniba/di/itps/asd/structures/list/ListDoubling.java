@@ -2,6 +2,8 @@ package it.uniba.di.itps.asd.structures.list;
 
 import it.uniba.di.itps.asd.structures.exceptions.EmptyStructureException;
 
+import java.util.Iterator;
+
 /**
  * Created by acidghost on 28/08/14.
  */
@@ -103,6 +105,11 @@ public class ListDoubling<T> implements List<T> {
         return (i.index >= 0 || i.index <= n);
     }
 
+    @Override
+    public Iterator<T> iterator() {
+        return new ListIterator<T>(this);
+    }
+
     public static void main(String[] args) {
         List<String> list = new ListDoubling<String>();
         System.out.println("la lista è vuota: " + list.isEmpty()+ "\n");
@@ -132,6 +139,13 @@ public class ListDoubling<T> implements List<T> {
         while (!list.isEndList(p)) {
             System.out.println(list.readList(p));
             p = list.next(p);
+        }
+
+        //  Print list through the iterator
+        System.out.println("\n Stampa lista con iteratore");
+        Iterator iterator = list.iterator();
+        while(iterator.hasNext()) {
+            System.out.println(iterator.next());
         }
     }
 }
