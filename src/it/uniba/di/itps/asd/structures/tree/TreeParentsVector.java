@@ -10,11 +10,11 @@ import java.util.LinkedList;
 /**
  * Created by acidghost on 29/08/14.
  */
-public class TreePV implements Tree {
-    private NodePV[] nodes = new NodePV[0];
-    private NodePV[] parents = new NodePV[0];
+public class TreeParentsVector implements Tree {
+    private NodeParentsVector[] nodes = new NodeParentsVector[0];
+    private NodeParentsVector[] parents = new NodeParentsVector[0];
 
-    private boolean isValidNode(NodePV node) {
+    private boolean isValidNode(NodeParentsVector node) {
         return (node != null && node.tree == this);
     }
 
@@ -28,12 +28,12 @@ public class TreePV implements Tree {
         if(!isEmpty()) {
             throw new NotEmptyTreeException();
         }
-        NodePV node = new NodePV(info);
+        NodeParentsVector node = new NodeParentsVector(info);
         node.index = 0;
         node.tree = this;
-        nodes = new NodePV[1];
+        nodes = new NodeParentsVector[1];
         nodes[0] = node;
-        parents = new NodePV[1];
+        parents = new NodeParentsVector[1];
         parents[0] = null;
     }
 
@@ -47,7 +47,7 @@ public class TreePV implements Tree {
 
     @Override
     public Node parent(Node node) {
-        NodePV n = (NodePV) node;
+        NodeParentsVector n = (NodeParentsVector) node;
         if(!isValidNode(n)) {
             throw new InvalidNodeException();
         }
@@ -61,7 +61,7 @@ public class TreePV implements Tree {
 
     @Override
     public Node firstChild(Node node) {
-        NodePV n = (NodePV) node;
+        NodeParentsVector n = (NodeParentsVector) node;
         if(!isValidNode(n)) {
             throw new InvalidNodeException();
         }
@@ -75,7 +75,7 @@ public class TreePV implements Tree {
 
     @Override
     public boolean isLastSibling(Node node) {
-        NodePV n = (NodePV) node;
+        NodeParentsVector n = (NodeParentsVector) node;
         if(!isValidNode(n)) {
             throw new InvalidNodeException();
         }
@@ -89,7 +89,7 @@ public class TreePV implements Tree {
 
     @Override
     public Node nextSibling(Node node) {
-        NodePV n = (NodePV) node;
+        NodeParentsVector n = (NodeParentsVector) node;
         if(!isValidNode(n)) {
             throw new InvalidNodeException();
         }
@@ -103,17 +103,17 @@ public class TreePV implements Tree {
 
     @Override
     public void insertFirstSubTree(Node node, Tree tree) {
-        NodePV n = (NodePV) node;
+        NodeParentsVector n = (NodeParentsVector) node;
         if(!isValidNode(n)) {
             throw new InvalidNodeException();
         }
         int index = n.index;
-        TreePV t = (TreePV) tree;
-        NodePV[] tmpNodes = new NodePV[nodes.length + t.nodes.length];
-        NodePV[] tmpParents = new NodePV[parents.length + t.parents.length];
+        TreeParentsVector t = (TreeParentsVector) tree;
+        NodeParentsVector[] tmpNodes = new NodeParentsVector[nodes.length + t.nodes.length];
+        NodeParentsVector[] tmpParents = new NodeParentsVector[parents.length + t.parents.length];
         System.arraycopy(nodes, 0, tmpNodes, 0, index+1);
         System.arraycopy(parents, 0, tmpParents, 0, index+1);
-        tmpNodes[index+1] = (NodePV) t.root();
+        tmpNodes[index+1] = (NodeParentsVector) t.root();
         tmpNodes[index+1].tree = this;
         tmpNodes[index+1].index = index+1;
         tmpParents[index+1] = n;
@@ -135,20 +135,20 @@ public class TreePV implements Tree {
 
     @Override
     public void insertSubTree(Node node, Tree tree) {
-        NodePV n = (NodePV) node;
+        NodeParentsVector n = (NodeParentsVector) node;
         if(!isValidNode(n)) {
             throw new InvalidNodeException();
         }
         int index = n.index;
-        TreePV t = (TreePV) tree;
-        NodePV[] tmpNodes = new NodePV[nodes.length + t.nodes.length];
-        NodePV[] tmpParents = new NodePV[parents.length + t.parents.length];
+        TreeParentsVector t = (TreeParentsVector) tree;
+        NodeParentsVector[] tmpNodes = new NodeParentsVector[nodes.length + t.nodes.length];
+        NodeParentsVector[] tmpParents = new NodeParentsVector[parents.length + t.parents.length];
         System.arraycopy(nodes, 0, tmpNodes, 0, index+1);
         System.arraycopy(parents, 0, tmpParents, 0, index+1);
-        tmpNodes[index+1] = (NodePV) t.root();
+        tmpNodes[index+1] = (NodeParentsVector) t.root();
         tmpNodes[index+1].tree = this;
         tmpNodes[index+1].index = index+1;
-        tmpParents[index+1] = (NodePV) parent(n);
+        tmpParents[index+1] = (NodeParentsVector) parent(n);
         for(int i=index+1; i<nodes.length; i++) {
             tmpNodes[i+1] = nodes[i];
             tmpNodes[i+1].index = i+1;
@@ -165,16 +165,16 @@ public class TreePV implements Tree {
         parents = tmpParents;
     }
 
-    private void removeNode(NodePV node) {
+    private void removeNode(NodeParentsVector node) {
         if(!isValidNode(node)) {
             throw new InvalidNodeException();
         }
         int n = nodes.length;
-        NodePV[] tmp = new NodePV[n - 1];
+        NodeParentsVector[] tmp = new NodeParentsVector[n - 1];
         System.arraycopy(nodes, 0, tmp, 0, node.index);
         System.arraycopy(nodes, node.index+1, tmp, node.index, tmp.length - node.index);
         nodes = tmp;
-        tmp = new NodePV[n - 1];
+        tmp = new NodeParentsVector[n - 1];
         System.arraycopy(parents, 0, tmp, 0, node.index);
         System.arraycopy(parents, node.index+1, tmp, node.index, tmp.length - node.index);
         parents = tmp;
@@ -185,19 +185,19 @@ public class TreePV implements Tree {
 
     @Override
     public void removeSubTree(Node node) {
-        NodePV n = (NodePV) node;
+        NodeParentsVector n = (NodeParentsVector) node;
         if(!isValidNode(n)) {
             throw new InvalidNodeException();
         }
         if(!isLeaf(n)) {
-            NodePV tmp = (NodePV) firstChild(n);
-            LinkedList<NodePV> siblings = new LinkedList<NodePV>();
+            NodeParentsVector tmp = (NodeParentsVector) firstChild(n);
+            LinkedList<NodeParentsVector> siblings = new LinkedList<NodeParentsVector>();
             siblings.add(tmp);
             while(!isLastSibling(tmp)) {
-                tmp = (NodePV) nextSibling(tmp);
+                tmp = (NodeParentsVector) nextSibling(tmp);
                 siblings.add(tmp);
             }
-            for(NodePV currentSibling : siblings) {
+            for(NodeParentsVector currentSibling : siblings) {
                 removeSubTree(currentSibling);
             }
         }
@@ -206,7 +206,7 @@ public class TreePV implements Tree {
 
     @Override
     public Object getInfo(Node node) {
-        NodePV n = (NodePV) node;
+        NodeParentsVector n = (NodeParentsVector) node;
         if(!isValidNode(n)) {
             throw new InvalidNodeException();
         }
@@ -215,7 +215,7 @@ public class TreePV implements Tree {
 
     @Override
     public void setInfo(Node node, Object info) {
-        NodePV n = (NodePV) node;
+        NodeParentsVector n = (NodeParentsVector) node;
         if(!isValidNode(n)) {
             throw new InvalidNodeException();
         }

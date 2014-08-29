@@ -3,12 +3,12 @@ package it.uniba.di.itps.asd.structures.tree;
 /**
  * Created by acidghost on 29/08/14.
  */
-class NodePV implements Node {
+class NodeParentsVector implements Node {
     public Object info;
     public int index;
     public Tree tree;
 
-    public NodePV(Object info) {
+    public NodeParentsVector(Object info) {
         this.info = info;
     }
 
