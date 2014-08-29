@@ -9,4 +9,6 @@ public class EmptyStructureException extends RuntimeException {
         super(message);
     }
 
+    public EmptyStructureException() {
+    }
 }
