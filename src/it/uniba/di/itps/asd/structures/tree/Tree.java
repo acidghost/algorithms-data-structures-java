@@ -1,8 +1,5 @@
 package it.uniba.di.itps.asd.structures.tree;
 
-import java.util.Iterator;
-import java.util.NoSuchElementException;
-
 /**
  * Created by acidghost on 29/08/14.
  */
@@ -20,7 +17,4 @@ public interface Tree extends Iterable {
     public void removeSubTree(Node node);
     public Object getInfo(Node node);
     public void setInfo(Node node, Object info);
-
-    @Override
-    Iterator iterator();
 }
