@@ -15,6 +15,10 @@ public class TreeIterator implements Iterator {
         PRE, POS, IN
     }
 
+    public TreeIterator(Tree tree) {
+        this(tree, VisitType.PRE);
+    }
+
     public TreeIterator(Tree tree, VisitType type) {
         this.tree = tree;
         if(!tree.isEmpty()) {
