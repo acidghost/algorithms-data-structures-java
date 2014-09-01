@@ -11,18 +11,18 @@ public class TreeIterator implements Iterator {
     private LinkedList<Node> nodes = new LinkedList<Node>();
     private int i = 0;
 
-    public enum VisitType {
-        PRE, POS, IN
+    public TreeIterator(Tree tree) {
+        this(tree, TreeVisitType.PRE);
     }
 
-    public TreeIterator(Tree tree, VisitType type) {
+    public TreeIterator(Tree tree, TreeVisitType type) {
         this.tree = tree;
         if(!tree.isEmpty()) {
-            if(type == VisitType.PRE) {
+            if(type == TreeVisitType.PRE) {
                 previsita(tree.root());
-            } else if(type == VisitType.IN) {
+            } else if(type == TreeVisitType.IN) {
                 invisita(tree.root());
-            } else if(type == VisitType.POS) {
+            } else if(type == TreeVisitType.POS) {
                 postvisita(tree.root());
             }
         }

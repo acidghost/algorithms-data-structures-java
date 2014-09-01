@@ -224,6 +224,6 @@ public class TreeParentsVector implements Tree {
 
     @Override
     public Iterator iterator() {
-        return new TreeIterator(this, TreeIterator.VisitType.PRE);
+        return new TreeIterator(this);
     }
 }
