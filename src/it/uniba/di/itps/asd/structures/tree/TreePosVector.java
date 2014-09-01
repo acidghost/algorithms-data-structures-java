@@ -151,6 +151,6 @@ public class TreePosVector implements Tree {
 
     @Override
     public Iterator iterator() {
-        return new TreeIterator(this, TreeIterator.VisitType.PRE);
+        return new TreeIterator(this);
     }
 }
