@@ -1,7 +1,7 @@
 package it.uniba.di.itps.asd.searching;
 
-import it.uniba.di.itps.asd.ordinaArrayObjects.OrdinaArrayObject;
 import it.uniba.di.itps.asd.sorting.OrdinaArray;
+
 import java.util.Random;
 
 /**

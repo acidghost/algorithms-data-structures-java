@@ -1,7 +1,5 @@
 package it.uniba.di.itps.asd.exams.Lab20090216.lista;
 
-import it.uniba.di.itps.asd.exams.Lab20090216.Partita;
-
 import java.util.Iterator;
 
 /**

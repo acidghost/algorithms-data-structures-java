@@ -1,7 +1,6 @@
 package it.uniba.di.itps.asd.exams.Lab20100608.dict;
 
 import java.util.Iterator;
-import java.util.NoSuchElementException;
 
 /**
  * Created with IntelliJ IDEA.

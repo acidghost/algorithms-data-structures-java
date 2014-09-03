@@ -1,6 +1,9 @@
 package it.uniba.di.itps.asd.exams.Lab20100111;
 
-import it.uniba.di.itps.asd.exams.Lab20100111.bio.*;
+import it.uniba.di.itps.asd.exams.Lab20100111.bio.DNA;
+import it.uniba.di.itps.asd.exams.Lab20100111.bio.IllegalAminoacido;
+import it.uniba.di.itps.asd.exams.Lab20100111.bio.IllegalNucleotide;
+import it.uniba.di.itps.asd.exams.Lab20100111.bio.Proteina;
 
 /**
  * Created by acidghost on 16/06/14.

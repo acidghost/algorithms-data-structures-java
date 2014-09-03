@@ -1,8 +1,8 @@
 package it.uniba.di.itps.asd.exams.Lab20100111.bio;
 
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-import java.util.HashMap;
 
 /**
  * Created by acidghost on 12/06/14.
