@@ -17,18 +17,19 @@ public class ArrayOrdinato<T> implements Dictionary<T> {
     }
 
     private int searchPositionInsert(Comparable k) {
-        if(lista.length == 0) {
-            return 0;
-        }
-
-        int i=0;
-        while(i<lista.length) {
-            if(k.compareTo(lista[i].key) > 0) {
-                break;
+        int i=0, j=lista.length-1, m;
+        while (i<j) {
+            m = (i+j)/2;
+            int comp = k.compareTo(lista[m].key);
+            if(comp == 0) {
+                return m;
+            } else if(comp > 0) {
+                i = m+1;
+            } else {
+                j = m;
             }
-            i++;
         }
-        return i;
+        return -1;
     }
 
     @Override
@@ -42,6 +43,7 @@ public class ArrayOrdinato<T> implements Dictionary<T> {
         for(int i=pos+1; i<tmp.length; i++) {
             tmp[i] = lista[i-1];
         }
+        lista = tmp;
     }
 
     @Override
@@ -74,17 +76,13 @@ public class ArrayOrdinato<T> implements Dictionary<T> {
         int i=0, j=lista.length-1, m;
         while(i<j) {
             m = (i+j)/2;
-            switch (k.compareTo(lista[m].key)) {
-                case -1:
-                    j = m-1;
-                    break;
-                case 1:
-                    i = m+1;
-                    break;
-                case 0:
-                    return (T) lista[m].value;
-                default:
-                    throw new RuntimeException("Ramo impossibile...");
+            int comp = k.compareTo(lista[m].key);
+            if(comp == 0) {
+                return (T) lista[m].value;
+            } else if(comp > 0) {
+                i = m+1;
+            } else {
+                j = m-1;
             }
         }
         return null;
